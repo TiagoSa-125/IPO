@@ -37,9 +37,52 @@ function Inicio() {
 
 }
 function ClientesList() {
-  return (<h2>Página de Clientes
-    <button className="btn btn-primary"><i className="fa fa-plus"></i> Novo Cliente</button>
+  return (<h2>Clientes
+    <div className="text-right">
+      <button className="btn btn-primary"> <i className="fa fa-plus"></i> Novo Cliente</button>
+      
+      <button className="btn btn-primary"> <i className="fa fa-plus"></i> Atualizar Cliente</button>
+    </div>
+    <table className="table">
+      <thead>
+        <tr>
+          <th scope="col">Clientes</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Morada</th>
+          <th scope="col">NIF</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Julio Pinho</td>
+          <td>Lisboa</td>
+          <td>@185763224</td>
+          <td>
+            <i className="fa fa-eye"></i>
+            <button className="btn btn-sm btn-outline-primary">Editar</button>
+            
+            <button className="btn btn-sm btn-outline-danger">Apagar</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>John</td>
+          <td>Doe</td>
+          <td>@social</td>
+        </tr>
+      </tbody>
+    </table>
+
   </h2>
+
 
 
   );
