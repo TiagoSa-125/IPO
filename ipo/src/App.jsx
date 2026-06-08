@@ -37,51 +37,68 @@ function Inicio() {
 
 }
 function ClientesList() {
-  return (<h2>Clientes
+  return (
+  
+  <><h2>Clientes
     <div className="text-right">
       <button className="btn btn-primary"> <i className="fa fa-plus"></i> Novo Cliente</button>
       
       <button className="btn btn-primary"> <i className="fa fa-plus"></i> Atualizar Cliente</button>
     </div>
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">Clientes</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Morada</th>
-          <th scope="col">NIF</th>
-          <th scope="col">Opções</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Julio Pinho</td>
-          <td>Lisboa</td>
-          <td>@185763224</td>
-          <td>
-            <i className="fa fa-eye"></i>
-            <button className="btn btn-sm btn-outline-primary">Editar</button>
-            
-            <button className="btn btn-sm btn-outline-danger">Apagar</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>John</td>
-          <td>Doe</td>
-          <td>@social</td>
-        </tr>
-      </tbody>
-    </table>
+    
+    </h2>
 
-  </h2>
+    <div className="container">
+          
+  <table className="table table-striped">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Morada</th>
+        <th>NIF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Julio Pinho</td>
+        <td>Lisboa</td>
+        <td>@185763224</td>
+        <td>
+
+            <button className="fa fa-eye fa-2"></button>
+
+            <button className="fa fa-trash fa-2"></button>
+          </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Barros Silva</td>
+        <td>Madeira</td>
+        <td>@185763224</td>
+        <td>
+
+            <button className="fa fa-eye fa-2"></button>
+
+            <button className="fa fa-trash fa-2"></button>
+          </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Maria Juahna</td>
+        <td>Porto</td>
+        <td>@185763224</td>
+        <td>
+
+            <button className="fa fa-eye fa-2"></button>
+
+            <button className="fa fa-trash fa-2"></button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div></>
 
 
 
