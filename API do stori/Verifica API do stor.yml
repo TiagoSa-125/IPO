@@ -1,0 +1,16 @@
+info:
+  name: Verifica API do stor
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://effective-capybara-v665669654wghp5gj-3000.app.github.dev/
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+​
