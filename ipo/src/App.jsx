@@ -42,6 +42,8 @@ function Inicio() {
 
 }
 function ClientesList() {
+  const [deleteId, setDeleteId] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensagemErro, setMensagemErro] = useState(null);
@@ -50,6 +52,16 @@ function ClientesList() {
     fetchData();
   }, []);
 
+  const openDeleteModal = (id) => {
+    setDeleteId(id);
+    setShowDeleteModal(true);
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteId(null);
+    setShowDeleteModal(false);
+  };
+  
   const confirmDelete = async (id) => {
     try {
       const response = await fetch(API_BASE + '/clientes/ ' + id, { method: 'DELETE' });
@@ -61,6 +73,9 @@ function ClientesList() {
       }
     } catch {
       setMensagemErro('Erro ao eliminar cliente');
+    }
+    finally {
+      closeDeleteModal();
     }
   };
 
@@ -122,14 +137,38 @@ function ClientesList() {
                 <button className="btn btn-dark btn-sm mr-2" ><i className='fa fa-pencil' aria-hidden='true'></i></button>
 
                 <button className="btn btn-dark btn-sm"
-                  onClick={() => confirmDelete(cliente.codcli)}> <i className='fa fa-trash' aria-hidden='true'></i>
+                  onClick={() => openDeleteModal(cliente.codcli)}> <i className='fa fa-trash' aria-hidden='true'></i>
                 </button>
-                
+
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {showDeleteModal && (
+        <>
+          <div className="modal-backdrop fade show"></div>
+          <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1" role="dialog">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Confirmação</h5>
+                  <button type="button" className="close" onClick={closeDeleteModal}>
+                    <span>&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <p>Tem certeza que deseja eliminar este cliente?</p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" onClick={closeDeleteModal}>Cancelar</button>
+                  <button type="button" className="btn btn-danger" onClick={() => confirmDelete(deleteId)}>Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 }
