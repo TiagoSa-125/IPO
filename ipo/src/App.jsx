@@ -400,7 +400,7 @@ function InspecoesList() {
               <td>{inspecoes.codmatricula}</td>
               <td>{inspecoes.datainspecao}</td>
               <td>{inspecoes.numerofaltas}</td>
-              <td>{inspecoes.aprovado}</td>
+              <td>{inspecoes.aprovado ? 'Sim' : 'Não'}</td>
 
               <td style={{ whiteSpace: 'nowrap' }}>
                 <button className="btn btn-dark btn-sm mr-2" ><i className='fa fa-eye' aria-hidden='true'></i></button>
