@@ -332,7 +332,7 @@ function InspecoesList() {
   
   const confirmDelete = async (id) => {
     try {
-      const response = await fetch(API_BASE + '/veiculos/ ' + id, { method: 'DELETE' });
+      const response = await fetch(API_BASE + '/inspecoes/ ' + id, { method: 'DELETE' });
       const data = await response.json();
       if (data.success) {
         fetchData();
@@ -349,7 +349,7 @@ function InspecoesList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(API_BASE + '/veiculos');
+      const response = await fetch(API_BASE + '/inspecoes');
       const data = await response.json();
       if (data.success) {
         setInspecoes(data.data);
