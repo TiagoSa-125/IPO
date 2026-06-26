@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 
-const API_BASE = 'https://reimagined-tribble-4jjrjj5jrxw7357j6-3000.app.github.dev'
+const API_BASE = 'https://obscure-doodle-97vxxqq5px3w47-3000.app.github.dev'
 
 function App() {
 
@@ -200,7 +200,7 @@ function ClienteForm({ modo }) {
   const fetchData = async () => {
     try {
       if (id) {
-        const response = await fetch(API_BASE + '/clientes?id=' + id);
+        const response = await fetch(API_BASE + '/clientes/' + id);
         const data = await response.json();
         if (data.success) {
           setFormData(data.data);
@@ -227,7 +227,7 @@ function ClienteForm({ modo }) {
       });
       const data = await response.json();
       if (data.success) {
-        if (modo === 'update') {
+        if (modo === '/clientes/update' + id) {
           navigate('/clientes/update/' + id);
         } else {
           navigate('/clientes');
@@ -288,11 +288,11 @@ function ClienteForm({ modo }) {
       </div>
       {modo !== 'read' ? (
         <>
-          <button type="submit" className="btn btn btn-dark mr-2">Guardar</button>
+          <button type="submit" className="btn btn btn-dark mr-2" onClick={() => navigate('/clientes')} >Guardar</button>
           <button type="button" className="btn btn-secondary" onClick={() => navigate('/clientes')}>Cancelar</button>
         </>
       ) : (
-        <button type="button" className="btn btn-secondary" onClick={() => navigate('/clientes')}>Voltar</button>
+        <button type="button" className="btn btn-secondary" onClick={() => navigate('/clientes/update/${cliente.codcli}')}>Voltar</button>
       )}
     </form>
   );
